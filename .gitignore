@@ -1,0 +1,10 @@
+# Fichiers à ignorer
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.vscode/
+.env
+.streamlit/secrets.toml  # Exclure les secrets !
+data/                    # Exclure les gros fichiers de données

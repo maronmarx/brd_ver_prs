@@ -1,0 +1,818 @@
+2025-04-07 14:42:33,832 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 14:42:36,736 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:42:37,298 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:42:37,514 - rndv_ghandi - ERROR - Application error: background_gradient requires matplotlib.
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 71, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 55, in main
+    render_dashboard(filters)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\pages\dashboard.py", line 52, in render_dashboard
+    display_data_section(data, filters)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\pages\dashboard.py", line 146, in display_data_section
+    display_dataframe(data)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\components\data_display.py", line 36, in display_dataframe
+    st.dataframe(styled_df, use_container_width=use_container_width)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\runtime\metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\elements\arrow.py", line 599, in dataframe
+    marshall_styler(proto, data, default_uuid)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\streamlit\elements\lib\pandas_styler_utils.py", line 62, in marshall_styler
+    styler._compute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\style_render.py", line 256, in _compute
+    r = func(self)(*args, **kwargs)
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\style.py", line 1726, in _apply
+    result = data.apply(func, axis=0, **kwargs)
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 10374, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ~~~~~~~~^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 916, in apply
+    return self.apply_standard()
+           ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 1063, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 1081, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\style.py", line 3806, in _background_gradient
+    with _mpl(Styler.background_gradient) as (_, _matplotlib):
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\formats\style.py", line 98, in _mpl
+    raise ImportError(f"{func.__name__} requires matplotlib.")
+ImportError: background_gradient requires matplotlib.
+2025-04-07 14:53:23,180 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 14:53:23,696 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:53:23,950 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:53:48,294 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:53:48,317 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:54:15,586 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:15,600 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:22,569 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:22,597 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:54:24,523 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:24,537 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:38,812 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:38,821 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:40,163 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:40,174 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:40,627 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:40,638 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:40,963 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:40,975 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:41,338 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:41,351 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:41,693 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:41,707 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:42,091 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:42,102 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:42,411 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:42,421 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:42,768 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:42,780 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:43,059 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:43,067 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:43,394 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:43,407 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:43,778 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:43,850 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:45,323 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:45,332 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:45,664 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:45,675 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:54:46,915 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:54:46,926 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:55:10,152 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:55:10,164 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:55:11,552 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:55:11,561 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:55:13,592 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:55:13,610 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:55:14,488 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:55:14,500 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:55:16,523 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:55:16,534 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:56:22,590 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 14:56:23,188 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:56:23,189 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:56:23,346 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:56:23,866 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:56:27,594 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:56:27,604 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:56:29,992 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:56:30,014 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:57:30,135 - rndv_ghandi - ERROR - Application error: module 'streamlit' has no attribute 'experimental_rerun'
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 71, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 66, in main
+    st.experimental_rerun()
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'streamlit' has no attribute 'experimental_rerun'. Did you mean: 'experimental_user'?
+2025-04-07 14:57:30,537 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:30,583 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 14:57:38,392 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:38,415 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:57:40,405 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:40,423 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:57:48,915 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:48,929 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:57:58,527 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:58,545 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:57:59,847 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:57:59,870 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:01,761 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:01,771 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:02,384 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:02,393 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:05,107 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:05,115 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:06,513 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:06,522 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:10,231 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:10,260 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 14:58:36,680 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:36,699 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:38,622 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:38,637 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:39,077 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:39,092 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:39,415 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:39,434 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:39,918 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:39,931 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:40,513 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:40,529 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:40,878 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:40,892 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:41,390 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:41,409 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:41,962 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:41,979 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:42,542 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:42,561 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:43,061 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:43,076 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:43,494 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:43,509 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:44,263 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:44,276 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:58:44,767 - rndv_ghandi - INFO - Starting application
+2025-04-07 14:58:44,783 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 14:59:44,838 - rndv_ghandi - ERROR - Application error: module 'streamlit' has no attribute 'experimental_rerun'
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 71, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 66, in main
+    st.experimental_rerun()
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'streamlit' has no attribute 'experimental_rerun'. Did you mean: 'experimental_user'?
+2025-04-07 15:05:15,998 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:16,050 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:05:20,026 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:20,033 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:20,034 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:36,351 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:36,358 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:36,359 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:37,160 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:37,165 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:37,166 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:37,720 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:37,742 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:05:40,295 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:40,303 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:40,304 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:42,624 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:42,645 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:05:43,464 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:43,471 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:43,471 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:44,223 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:44,253 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:05:50,520 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:50,556 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:05:52,432 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:52,440 - rndv_ghandi.data_service - ERROR - Error fetching data: name 'time_filter_value' is not defined
+2025-04-07 15:05:52,441 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:05:55,000 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:05:55,023 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:34:36,359 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 15:34:36,911 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:34:37,150 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:34:58,149 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:34:58,174 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:35:00,264 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:35:00,371 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:42:27,625 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:42:27,832 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 7889
+2025-04-07 15:42:35,856 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:42:36,024 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:42:40,146 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:42:40,271 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1857
+2025-04-07 15:46:37,114 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:46:37,289 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:47:20,521 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:47:20,670 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:47:25,281 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:47:25,306 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:47:28,729 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:47:28,776 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:48:13,000 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:13,031 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:20,086 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:20,182 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:22,318 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:22,342 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:23,534 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:23,555 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:24,894 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:24,916 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:26,694 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:26,724 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:48:36,576 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:36,724 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:48:43,689 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:43,708 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 30
+2025-04-07 15:48:47,358 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:48:47,374 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 31
+2025-04-07 15:49:06,339 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:06,367 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 74
+2025-04-07 15:49:16,414 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:16,554 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:49:23,329 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:23,353 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 427
+2025-04-07 15:49:38,602 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:38,620 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 73
+2025-04-07 15:49:40,399 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:40,422 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:42,733 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:42,752 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:43,341 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:43,357 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:43,653 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:43,671 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:43,965 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:43,987 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:44,269 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:44,290 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:44,493 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:44,514 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:44,950 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:44,972 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:45,579 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:45,593 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:45,966 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:46,043 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:46,414 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:46,435 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:46,821 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:46,842 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:47,046 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:47,122 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 73
+2025-04-07 15:49:47,256 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:47,272 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:48,526 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:48,545 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 73
+2025-04-07 15:49:49,054 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:49,071 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:50,095 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:50,111 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:50,925 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:50,939 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:51,598 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:51,616 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:52,310 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:52,327 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:53,517 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:53,534 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:53,958 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:53,974 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:54,533 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:54,602 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:54,951 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:54,968 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:55,350 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:55,368 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:55,806 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:55,824 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:56,158 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:56,174 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:56,493 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:56,514 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:56,894 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:56,909 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:49:57,173 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:49:57,257 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:10,062 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:10,082 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:10,414 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:10,428 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:10,598 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:10,614 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:10,765 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:10,783 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:10,941 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:10,955 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:11,398 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:11,415 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:11,886 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:11,899 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:50:18,722 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:18,736 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 42
+2025-04-07 15:50:19,642 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:19,661 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 42
+2025-04-07 15:50:27,990 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:28,008 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 319
+2025-04-07 15:50:28,421 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:28,444 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 299
+2025-04-07 15:50:28,707 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:28,797 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 411
+2025-04-07 15:50:28,886 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:29,041 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 364
+2025-04-07 15:50:29,342 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:50:29,369 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 380
+2025-04-07 15:51:17,505 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:17,529 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:51:20,848 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:20,870 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:51:23,637 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:23,666 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:51:27,323 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:27,342 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 15:51:32,405 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:32,430 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:51:36,645 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:51:36,677 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:52:21,451 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:21,472 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:52:21,550 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:21,590 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:52:24,522 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:24,536 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 6
+2025-04-07 15:52:27,896 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:27,920 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 4
+2025-04-07 15:52:30,840 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:30,858 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 10
+2025-04-07 15:52:34,691 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:34,741 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:52:37,556 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:37,595 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:52:38,906 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:38,922 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 15:52:43,242 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:43,255 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 15:52:44,743 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:44,798 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:52:51,267 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:51,290 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:52:57,708 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:57,728 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 108
+2025-04-07 15:52:59,674 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:52:59,721 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:21,189 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:21,224 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:28,260 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:28,305 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:34,932 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:34,967 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:39,969 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:39,999 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:53:40,985 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:41,031 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:42,480 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:42,508 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:53:43,761 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:43,799 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:47,932 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:47,970 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:50,612 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:50,653 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:53:53,371 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:53:53,408 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:08,894 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:08,934 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:12,801 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:12,843 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:13,838 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:13,884 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:14,993 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:15,031 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:18,215 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:18,263 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:54:50,637 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:54:50,670 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:58:45,119 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:58:45,158 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:59:30,610 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:30,630 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:59:31,775 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:31,814 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-07 15:59:33,022 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:33,049 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:59:38,320 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:38,349 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:59:49,977 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:50,089 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 15:59:57,153 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:57,171 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 15:59:58,990 - rndv_ghandi - INFO - Starting application
+2025-04-07 15:59:59,013 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:00:21,779 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:00:21,802 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:15:39,297 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 16:15:39,832 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:15:40,133 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:15:42,673 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:15:42,694 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:15:45,679 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:15:45,710 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:18:04,323 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:08,201 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:10,487 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,347 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,460 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,586 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,717 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,838 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:21,877 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:24,368 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:25,017 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:27,195 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:31,346 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:49,305 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:18:59,840 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:09,610 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:14,498 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:21,601 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:22,888 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:25,002 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:25,030 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:19:26,859 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:27,997 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:30,055 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:33,930 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:33,957 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:19:36,465 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:45,315 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:19:45,339 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:19:47,570 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:25:08,233 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:25:08,284 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:25:10,856 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:25:13,454 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:25:17,016 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:16,337 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:16,386 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:27:18,319 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:31,387 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 16:27:31,912 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:32,193 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:27:35,687 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:46,038 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:48,813 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:27:52,523 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:46,562 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:46,587 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:29:48,647 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:51,388 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:53,182 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:53,208 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:29:56,036 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:29:58,238 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:30:23,043 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:30:23,066 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:30:50,186 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:30:52,230 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:30:52,259 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:30:54,215 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:05,005 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:05,027 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:31:07,015 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:09,530 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:17,891 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:17,909 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:31:25,235 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:27,499 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:27,519 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:31:36,014 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:36,130 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:36,145 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 2
+2025-04-07 16:31:39,420 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:39,445 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:31:42,234 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:50,466 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:50,485 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 2
+2025-04-07 16:31:52,802 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:31:52,829 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:36:44,572 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:36:47,548 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:36:53,332 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:36:53,349 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 30
+2025-04-07 16:39:50,450 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:39:50,494 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:39:52,612 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:39:52,625 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:39:57,322 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:39:57,343 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:40:01,371 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:01,396 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:40:02,584 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:02,612 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:40:03,606 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:03,630 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:40:07,399 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:07,413 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:40:11,396 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:11,411 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:40:16,686 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:16,702 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 2
+2025-04-07 16:40:22,987 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:40:23,007 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:44:50,786 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:44:50,807 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:45:25,920 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:45:25,976 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:46:01,176 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:46:01,284 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:46:15,867 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:46:15,917 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:47:06,094 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:47:06,146 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:47:55,976 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:47:56,005 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:47:59,218 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:47:59,245 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:48:13,484 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 16:48:13,975 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:48:14,224 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:48:41,261 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 16:48:41,738 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:48:42,001 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:48:46,816 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:48:46,846 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:50:42,493 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:50:42,515 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:50:45,021 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:50:45,046 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:50:48,235 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:50:48,250 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 16:50:51,260 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:50:51,288 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:52:15,303 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:52:15,327 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 16:52:59,506 - rndv_ghandi - INFO - Starting application
+2025-04-07 16:52:59,526 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:01:46,815 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 17:01:47,352 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:01:47,631 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:01:48,185 - rndv_ghandi - ERROR - Application error: nan
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 67, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 62, in main
+    render_dashboard(filters)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\pages\dashboard.py", line 286, in render_dashboard
+    variable_region = regions_stats.loc[regions_stats['ecart_type'].idxmax()]
+                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1191, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1431, in _getitem_axis
+    return self._get_label(key, axis=axis)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexing.py", line 1381, in _get_label
+    return self.obj.xs(label, axis=axis)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 4301, in xs
+    loc = index.get_loc(key)
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\range.py", line 417, in get_loc
+    raise KeyError(key)
+KeyError: nan
+2025-04-07 17:03:04,369 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 17:03:04,838 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:03:05,112 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:03:05,698 - rndv_ghandi - ERROR - Application error: FigureFactory.create_distplot requires scipy
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 67, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 62, in main
+    render_dashboard(filters)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\pages\dashboard.py", line 353, in render_dashboard
+    fig = ff.create_distplot(
+        [region_counts],
+    ...<2 lines>...
+        curve_type='normal'
+    )
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotly\figure_factory\_distplot.py", line 178, in create_distplot
+    validate_distplot(hist_data, curve_type)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotly\figure_factory\_distplot.py", line 47, in validate_distplot
+    raise ImportError("FigureFactory.create_distplot requires scipy")
+ImportError: FigureFactory.create_distplot requires scipy
+2025-04-07 17:05:12,310 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 17:05:12,809 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:05:13,079 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:05:13,647 - rndv_ghandi - ERROR - Application error: FigureFactory.create_distplot requires scipy
+Traceback (most recent call last):
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 67, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app.py", line 62, in main
+    render_dashboard(filters)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\mr202\OneDrive\Documents\python\dashbord\rndv_ghandi\app\pages\dashboard.py", line 353, in render_dashboard
+    fig = ff.create_distplot(
+        [region_counts],
+    ...<2 lines>...
+        curve_type='normal'
+    )
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotly\figure_factory\_distplot.py", line 178, in create_distplot
+    validate_distplot(hist_data, curve_type)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mr202\AppData\Local\Programs\Python\Python313\Lib\site-packages\plotly\figure_factory\_distplot.py", line 47, in validate_distplot
+    raise ImportError("FigureFactory.create_distplot requires scipy")
+ImportError: FigureFactory.create_distplot requires scipy
+2025-04-07 17:10:33,495 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 17:10:34,012 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:10:34,305 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:25:55,535 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-07 17:25:56,039 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:25:56,292 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:26:04,661 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:26:04,684 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 17:26:10,791 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:26:10,810 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1
+2025-04-07 17:26:14,120 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:26:14,142 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 2
+2025-04-07 17:26:23,012 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:26:23,040 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:26:27,064 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:26:27,089 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:28:44,757 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:28:44,787 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:28:46,073 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:28:46,202 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 17:28:51,113 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:28:51,128 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:28:59,086 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:28:59,116 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:29:00,407 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:00,422 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:12,578 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:12,591 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:15,952 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:15,963 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:18,670 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:20,849 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:20,860 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:22,434 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:22,445 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:23,985 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:25,561 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:25,572 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:27,553 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:27,565 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:29:33,111 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:33,224 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 17:29:44,514 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:44,655 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 7889
+2025-04-07 17:29:54,690 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:29:54,800 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 17:30:03,946 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:30:04,052 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1857
+2025-04-07 17:30:19,746 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:30:19,838 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1022
+2025-04-07 17:30:27,105 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:30:27,247 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 7889
+2025-04-07 17:30:52,678 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:30:52,706 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-07 17:30:54,070 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:30:54,083 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-07 17:31:34,535 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:31:34,722 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-07 17:31:42,507 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:31:42,668 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1857
+2025-04-07 17:31:53,713 - rndv_ghandi - INFO - Starting application
+2025-04-07 17:31:53,869 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:42:29,739 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 09:42:38,257 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:42:40,376 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:43:46,500 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:43:46,558 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:44:30,087 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:44:30,701 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:45:11,008 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:45:11,052 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:53:43,626 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:43,749 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:53:46,304 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:46,340 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:53:48,191 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:48,233 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:53:49,615 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:49,720 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:53:53,167 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:53,214 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:53:56,101 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:53:56,141 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:54:26,715 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:54:26,782 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:54:28,365 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:54:28,388 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:54:31,542 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:54:31,636 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:57:41,527 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 09:57:42,420 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:57:42,926 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:57:48,530 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:57:49,094 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:57:56,611 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:57:56,711 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:57:59,099 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:57:59,633 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:58:02,614 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:58:03,140 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 09:58:06,679 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:58:07,316 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:58:22,199 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:58:22,291 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 09:58:31,130 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:58:31,744 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 09:58:42,271 - rndv_ghandi - INFO - Starting application
+2025-04-08 09:58:42,296 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 10:25:25,691 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 10:26:45,653 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 10:26:45,659 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:26:46,084 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:28:08,850 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:28:09,493 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 10:28:33,185 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:28:33,622 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1022
+2025-04-08 10:29:00,871 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:29:01,011 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:29:22,104 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:29:22,728 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 10:30:07,314 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:30:07,443 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:30:11,297 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:30:11,426 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:30:12,829 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:30:13,362 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 10:37:46,781 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 10:37:46,785 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:37:47,225 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:37:54,953 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:37:55,558 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 10:38:33,305 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:38:33,928 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 3356
+2025-04-08 10:38:50,325 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:38:51,075 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 7889
+2025-04-08 10:39:25,005 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:39:25,640 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 4711
+2025-04-08 10:40:02,547 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:03,005 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 1022
+2025-04-08 10:40:17,224 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:17,346 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:40:20,352 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:20,526 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-08 10:40:30,814 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:30,949 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:40:33,520 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:33,652 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:40:40,027 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:40:40,166 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 108
+2025-04-08 10:41:03,047 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:41:03,184 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:41:06,030 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:41:06,125 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 0
+2025-04-08 10:41:38,391 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:41:38,617 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-08 10:44:39,167 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 10:44:39,170 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:44:39,596 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:44:41,361 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:44:41,673 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-08 10:44:51,873 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:44:52,011 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 127
+2025-04-08 10:44:54,076 - rndv_ghandi - INFO - Starting application
+2025-04-08 10:44:54,244 - rndv_ghandi.dashboard - INFO - Data fetched successfully. Rows: 574
+2025-04-08 11:01:22,064 - rndv_ghandi - INFO - Logger initialized with level INFO
+2025-04-08 11:01:22,070 - rndv_ghandi - INFO - Starting application
+2025-04-08 11:01:28,007 - rndv_ghandi - INFO - Starting application
+2025-04-08 11:01:29,119 - rndv_ghandi - INFO - Starting application
