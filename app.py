@@ -22,7 +22,7 @@ warnings.filterwarnings('ignore')
 # Configuration de la connexion MySQL
 DB_HOST = "localhost"
 DB_USER = "root"
-DB_PASSWORD = "root"
+DB_PASSWORD = "123"
 DB_NAME = "ghandi"
 TABLE_NAME = "vicidial_rdv"
 

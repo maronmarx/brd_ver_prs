@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import logging
 from typing import Dict, Any
+import io
 
 from utils.translations import MOIS_ANNEE, JOURS_ORDRE
 
@@ -55,61 +56,83 @@ def display_data_section(data: pd.DataFrame, filters: Dict[str, Any]):
         cols[0].metric("📍 Total RDV", f"{total_rdv:,}")
         cols[1].metric("📊 Régions", f"{data['region'].nunique()}")
         cols[2].metric("⏱️ Plages", f"{data['plage_horaire'].nunique()}")
+
+        # Add download button based on the data columns present
+    st.markdown('<div style="margin-top: 20px;"></div>', unsafe_allow_html=True) # Add spacing after button
+
+    # Display data table (keep existing logic for displaying the correct table)
+    if not data.empty and 'jour_semaine' not in data.columns:
+        # Use display_dataframe function from data_display module to ensure correct sorting
+        from app.components.data_display import display_dataframe
+        display_dataframe(data)
+
+        # Add download button for the main data table when day filter is not active
+        excel_buffer = io.BytesIO()
+        # Sort data for Excel download to match display order
+        sorted_data = data.sort_values(by='nombre_rendez_vous', ascending=False)
+        sorted_data.to_excel(excel_buffer, index=False)
+        st.download_button(
+            label="Télécharger en Excel",
+            data=excel_buffer.getvalue(),
+            file_name='donnees_rendez_vous.xlsx',
+            mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            key='download_main_data'
+        )
+
     elif 'jour_semaine' in data.columns:
-        cols = st.columns(3)
-        cols[0].metric("📍 Total RDV", f"{total_rdv:,}")
-        cols[1].metric("📊 Régions", f"{data['region'].nunique()}" if not data.empty else "0")
-        cols[2].metric("📅 Jours", f"{data['jour_semaine'].nunique()}" if not data.empty and 'jour_semaine' in data.columns else "7")
-        
-        # For day filter, display pivot table
-        if not data.empty and 'jour_semaine' in data.columns:
+         # For day filter, display pivot table
+        if not data.empty: # Redundant check, but keeping for safety
             # Analyse des données par jour de la semaine
-            pivot_data, top_regions = analyse_jours_par_region(data)
-            
+            pivot_data, top_regions = analyse_jours_par_region(data) # Regenerate for display
+
+            # Add download button for the pivot table
+            if not pivot_data.empty:
+                excel_buffer = io.BytesIO()
+
+                # Format percentage columns for Excel export
+                jour_cols = [j for j in JOURS_ORDRE if j in pivot_data.columns] # Need to redefine jour_cols here
+                percentage_cols = [f'{jour} (%)' for jour in jour_cols] + ['Total (%)']
+
+                # Create a copy to avoid modifying the dataframe used for display
+                excel_pivot_data = pivot_data.copy()
+
+                for col in percentage_cols:
+                    if col in excel_pivot_data.columns:
+                        # Apply formatting, handle potential NaN values
+                        excel_pivot_data[col] = excel_pivot_data[col].apply(lambda x: f'{x:.2f}%' if pd.notna(x) else '')
+
+                excel_pivot_data.to_excel(excel_buffer, index=False)
+                st.download_button(
+                    label="Télécharger l'analyse par jour en Excel",
+                    data=excel_buffer.getvalue(),
+                    file_name='analyse_jours_par_region.xlsx',
+                    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    key='download_day_analysis'
+                )
+
             if not pivot_data.empty:
                 st.write("### 📊 Répartition des rendez-vous par jour de la semaine et par région")
-                
+
                 # Formater le dataframe pivot pour l'affichage
                 formatted_pivot = pivot_data.copy()
                 jour_cols = [j for j in JOURS_ORDRE if j in formatted_pivot.columns]
-                
-                # Afficher le tableau pivot
+
+                # Define formatting dictionary
+                format_dict = {col: '{:,.0f}' for col in jour_cols + ['Total']}
+                for jour in jour_cols:
+                    format_dict[f'{jour} (%)'] = '{:.1f}%'
+                format_dict['Total (%)'] = '{:.1f}%'
+
                 st.dataframe(
                     formatted_pivot
                     .style
                     .background_gradient(subset=jour_cols + ['Total'], cmap='viridis')
-                    .format({col: '{:,.0f}' for col in jour_cols + ['Total']})
+                    .format(format_dict)
                     .set_properties(**{'text-align': 'center', 'border': '1px solid grey'}),
                     use_container_width=True
                 )
-    elif 'annee' in data.columns and 'mois' in data.columns:
-        cols = st.columns(4)
-        cols[0].metric("📍 Total RDV", f"{total_rdv:,}")
-        cols[1].metric("📅 Mois", data['mois'].iloc[0] if not data.empty else "-")
-        cols[2].metric("📆 Années", f"{data['annee'].nunique()}" if not data.empty else "0")
-        cols[3].metric("📊 Régions", f"{data['region'].nunique()}" if not data.empty else "0")
-    elif 'jour' in data.columns:
-        # Week filter analysis
-        cols = st.columns(4)
-        cols[0].metric("📍 Total RDV", f"{total_rdv:,}")
-        cols[1].metric("📅 Semaine", f"Semaine {filters.get('week_filter')}" if filters.get('week_filter') else "-")
-        cols[2].metric("📆 Année", f"{filters.get('year_filter')}" if filters.get('year_filter') else "-")
-        cols[3].metric("📊 Régions", f"{data['region'].nunique()}" if not data.empty else "0")
-    else:
-        cols = st.columns(2)
-        cols[0].metric("📍 Total RDV", f"{total_rdv:,}")
-        cols[1].metric("📊 Régions", f"{data['region'].nunique()}" if not data.empty else "0")
-    
-    # Display data table
-    if not data.empty and 'jour_semaine' not in data.columns:
-        st.markdown('<div style="margin-top: 20px;"></div>', unsafe_allow_html=True)
-        st.dataframe(
-            data.style
-            .background_gradient(subset='nombre_rendez_vous', cmap='viridis')
-            .format({'nombre_rendez_vous': '{:,.0f}'})
-            .set_properties(**{'text-align': 'center', 'border': '1px solid grey'}),
-            use_container_width=True
-        )
+    # No need for explicit display logic for other elifs as they don't have separate tables
+
 
 def display_chart_section(data: pd.DataFrame, filters: Dict[str, Any]):
     """
@@ -311,11 +334,31 @@ def analyse_jours_par_region(df: pd.DataFrame):
         jour_cols = [j for j in JOURS_ORDRE if j in pivot_df.columns]
         pivot_df = pivot_df[['region'] + jour_cols]
 
-        # Ajouter une colonne de total par région
+        # Ajouter une colonne de total par région et trier par ordre descendant
         pivot_df['Total'] = pivot_df[jour_cols].sum(axis=1)
-
-        # Trier par total décroissant
         pivot_df = pivot_df.sort_values('Total', ascending=False)
+
+        # Calculer les pourcentages par jour (par rapport au total de la colonne du jour)
+        for jour in jour_cols:
+            total_jour = pivot_df[jour].sum()
+            if total_jour > 0:
+                pivot_df[f'{jour} (%)'] = (pivot_df[jour] / total_jour) * 100
+            else:
+                pivot_df[f'{jour} (%)'] = 0
+
+        # Calculer le pourcentage total par région (par rapport au grand total)
+        grand_total = pivot_df['Total'].sum()
+        if grand_total > 0:
+            pivot_df['Total (%)'] = (pivot_df['Total'] / grand_total) * 100
+        else:
+            pivot_df['Total (%)'] = 0
+
+        # Réordonner les colonnes pour inclure les pourcentages à côté des valeurs
+        ordered_cols = ['region']
+        for jour in jour_cols:
+            ordered_cols.extend([jour, f'{jour} (%)'])
+        ordered_cols.extend(['Total', 'Total (%)'])
+        pivot_df = pivot_df[ordered_cols]
 
         # Trouver la région avec le plus de RDV pour chaque jour
         top_regions = {}
@@ -323,11 +366,13 @@ def analyse_jours_par_region(df: pd.DataFrame):
             if df[df['jour_semaine'] == jour].empty:
                 top_regions[jour] = {'region': 'N/A', 'nombre': 0}
                 continue
-                
-            max_region = df[df['jour_semaine'] == jour].loc[df[df['jour_semaine'] == jour]['nombre_rendez_vous'].idxmax()]
+
+            # Find the region with the max number of appointments for the current day
+            max_region_row = df[df['jour_semaine'] == jour].loc[df[df['jour_semaine'] == jour]['nombre_rendez_vous'].idxmax()]
+
             top_regions[jour] = {
-                'region': max_region['region'],
-                'nombre': int(max_region['nombre_rendez_vous'])
+                'region': max_region_row['region'],
+                'nombre': int(max_region_row['nombre_rendez_vous'])
             }
 
         return pivot_df, top_regions

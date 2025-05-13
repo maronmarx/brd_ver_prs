@@ -255,7 +255,11 @@ def render_advanced_dashboard(filters: Dict[str, Any]):
         # Sort by total appointments
         region_stats = region_stats.sort_values('total', ascending=False)
         
-        # Format table for display
+        # Format table for display - using display_dataframe to ensure consistent sorting
+        # First, sort the table by total in descending order
+        region_stats = region_stats.sort_values('total', ascending=False)
+        
+        # Now display it with styling
         st.dataframe(
             region_stats.style
             .format({

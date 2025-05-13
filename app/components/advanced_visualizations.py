@@ -162,14 +162,19 @@ def display_time_pattern_heatmap(data: pd.DataFrame, title: str = "Motifs Tempor
         title=title
     )
     
-    # Add text annotations
+    # Calculate total appointments for percentage calculation
+    total_appointments = pivot_data.values.sum()
+    
+    # Add text annotations with value and percentage
     for i, region in enumerate(top_regions):
         for j, day in enumerate(jour_cols):
             value = pivot_data.loc[region, day]
+            percentage = (value / total_appointments) * 100 if total_appointments > 0 else 0
+            text = f"{int(value)} ({percentage:.1f}%)"
             fig.add_annotation(
                 x=day,
                 y=region,
-                text=str(int(value)),
+                text=text,
                 showarrow=False,
                 font=dict(color="white" if value > pivot_data.values.max()/2 else "black", size=10)
             )
@@ -222,9 +227,19 @@ def display_time_pattern_heatmap(data: pd.DataFrame, title: str = "Motifs Tempor
             <h4 style="color: #0079FF; margin-top: 0;">📅 Distribution par Jour</h4>
             <p><span style="color: #0079FF; font-weight: 600;">Jour le plus chargé:</span> {busiest_day} ({int(busiest_day_value)} RDV)</p>
             <p><span style="color: #FF0060; font-weight: 600;">Jour le moins chargé:</span> {least_busy_day} ({int(least_busy_day_value)} RDV)</p>
-            <p><span style="color: #00DFA2; font-weight: 600;">Ratio max/min:</span> {(busiest_day_value/least_busy_day_value):.1f}x</p>
-        </div>
         """, unsafe_allow_html=True)
+        
+        # Avoid division by zero if least_busy_day_value is 0
+        if least_busy_day_value > 0:
+            st.markdown(f"""
+            <p><span style="color: #00DFA2; font-weight: 600;">Ratio max/min:</span> {(busiest_day_value/least_busy_day_value):.1f}x</p>
+            """, unsafe_allow_html=True)
+        else:
+             st.markdown(f"""
+            <p><span style="color: #00DFA2; font-weight: 600;">Ratio max/min:</span> Indisponible (minimum est 0)</p>
+            """, unsafe_allow_html=True)
+        
+        st.markdown("</div>", unsafe_allow_html=True)
         
     with col2:
         # Find the most consistent and most variable regions
@@ -239,10 +254,95 @@ def display_time_pattern_heatmap(data: pd.DataFrame, title: str = "Motifs Tempor
         <div style="background-color: rgba(0, 121, 255, 0.05); padding: 15px; border-radius: 10px;">
             <h4 style="color: #0079FF; margin-top: 0;">🏙️ Patterns par Région</h4>
             <p><span style="color: #00DFA2; font-weight: 600;">Région la plus stable:</span> {most_consistent} (CV: {region_cv[most_consistent]:.2f})</p>
-            <p><span style="color: #FF0060; font-weight: 600;">Région la plus variable:</span> {most_variable} (CV: {region_cv[most_variable]:.2f})</p>
+            <p><span style="color: #FF0060; font-weight: 600;">Région la plus variable:</span> {region_cv[most_variable]:.2f})</p>
             <p>Une valeur de CV plus basse indique une distribution plus uniforme des rendez-vous sur la semaine.</p>
         </div>
         """, unsafe_allow_html=True)
+
+    # Add total percentages by day and region
+    st.markdown('<div class="dashboard-container">', unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; margin-bottom: 20px;'>Répartition des rendez-vous (Pourcentages)</h3>", unsafe_allow_html=True)
+
+    col_day, col_region = st.columns(2)
+
+    with col_day:
+        st.markdown("<h4 style='text-align: center;'>Par Jour de la Semaine</h4>", unsafe_allow_html=True)
+        day_totals_percentage = (pivot_data.sum() / total_appointments * 100).reset_index()
+        day_totals_percentage.columns = ['Jour', 'Pourcentage']
+        day_totals_percentage = day_totals_percentage.sort_values('Pourcentage', ascending=False)
+        
+        # Add a total row
+        total_day_percentage = day_totals_percentage['Pourcentage'].sum()
+        total_row = pd.DataFrame({'Jour': ['Total'], 'Pourcentage': [total_day_percentage]})
+        day_totals_percentage = pd.concat([day_totals_percentage, total_row], ignore_index=True)
+        
+        st.dataframe(
+            day_totals_percentage.style.format({'Pourcentage': '{:.1f}%'})
+            .set_properties(subset=pd.IndexSlice[day_totals_percentage.index[-1], :], **{'font-weight': 'bold', 'background-color': 'rgba(0, 121, 255, 0.1)'})
+            .bar(subset=['Pourcentage'], color='#0079FF', vmin=0, vmax=100),
+            use_container_width=True
+        )
+
+    with col_region:
+        st.markdown("<h4 style='text-align: center;'>Par Région</h4>", unsafe_allow_html=True)
+        region_totals_percentage = (pivot_data.sum(axis=1) / total_appointments * 100).reset_index()
+        region_totals_percentage.columns = ['Région', 'Pourcentage']
+        region_totals_percentage = region_totals_percentage.sort_values('Pourcentage', ascending=False)
+        
+        # Add a total row
+        total_region_percentage = region_totals_percentage['Pourcentage'].sum()
+        total_row = pd.DataFrame({'Région': ['Total'], 'Pourcentage': [total_region_percentage]})
+        region_totals_percentage = pd.concat([region_totals_percentage, total_row], ignore_index=True)
+        
+        st.dataframe(
+            region_totals_percentage.style.format({'Pourcentage': '{:.1f}%'})
+            .set_properties(subset=pd.IndexSlice[region_totals_percentage.index[-1], :], **{'font-weight': 'bold', 'background-color': 'rgba(0, 223, 162, 0.1)'})
+            .bar(subset=['Pourcentage'], color='#00DFA2', vmin=0, vmax=100),
+            use_container_width=True
+        )
+    
+    # Add a percentage visualization chart
+    st.markdown("<h4 style='text-align: center; margin-top: 20px;'>Répartition visuelle des pourcentages</h4>", unsafe_allow_html=True)
+    
+    col_viz1, col_viz2 = st.columns(2)
+    
+    with col_viz1:
+        # Create a pie chart for days
+        day_data = day_totals_percentage[:-1]  # Exclude total row
+        fig_pie_day = px.pie(
+            day_data, 
+            values='Pourcentage', 
+            names='Jour', 
+            title="Répartition par jour de la semaine (100%)",
+            color_discrete_sequence=px.colors.sequential.Viridis,
+            hole=0.4
+        )
+        fig_pie_day.update_traces(textposition='inside', textinfo='percent+label')
+        fig_pie_day.update_layout(
+            legend=dict(orientation="h", yanchor="bottom", y=-0.1, xanchor="center", x=0.5),
+            margin=dict(t=30, b=10, l=10, r=10)
+        )
+        st.plotly_chart(fig_pie_day, use_container_width=True)
+        
+    with col_viz2:
+        # Create a pie chart for regions
+        region_data = region_totals_percentage[:-1]  # Exclude total row
+        fig_pie_region = px.pie(
+            region_data, 
+            values='Pourcentage', 
+            names='Région',
+            title="Répartition par région (100%)",
+            color_discrete_sequence=px.colors.sequential.Plasma,
+            hole=0.4
+        )
+        fig_pie_region.update_traces(textposition='inside', textinfo='percent+label')
+        fig_pie_region.update_layout(
+            legend=dict(orientation="h", yanchor="bottom", y=-0.1, xanchor="center", x=0.5),
+            margin=dict(t=30, b=10, l=10, r=10)
+        )
+        st.plotly_chart(fig_pie_region, use_container_width=True)
+
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
 def display_predictive_analysis(data: pd.DataFrame):
@@ -510,7 +610,7 @@ def display_predictive_analysis(data: pd.DataFrame):
         padding: 20px;
         margin-top: 30px;
     ">
-        <h4 style="color: #0079FF; margin-top: 0;">🧠 Recommandations IA</h4>
+        <h4 style="color: #0079FF; margin-top: 0;'>🧠 Recommandations IA</h4>
         <ul>
             <li><strong>Planification des ressources:</strong> Augmentez la capacité en prévision de la hausse projetée, particulièrement en milieu de semaine.</li>
             <li><strong>Focus régional:</strong> Concentrez les efforts d'optimisation sur les régions ayant les plus fortes projections de croissance.</li>
@@ -919,11 +1019,7 @@ def display_geo_heatmap(data: pd.DataFrame):
         padding: 20px;
         margin-top: 20px;
     ">
-        <h4 style="color: #0079FF; margin-top: 0;">📊 Analyse de la Distribution Régionale</h4>
-        <p>
-            La visualisation ci-dessus permet d'identifier rapidement les zones géographiques les plus actives en termes de rendez-vous.
-            Cette analyse peut servir à:
-        </p>
+        <h4 style="color: #0079FF; margin-top: 0;'>🧠 Analyse de la Distribution Régionale</h4>
         <ul>
             <li><strong>Optimiser l'allocation des ressources</strong> en fonction de la demande géographique</li>
             <li><strong>Identifier les régions sous-desservies</strong> qui pourraient bénéficier d'initiatives ciblées</li>

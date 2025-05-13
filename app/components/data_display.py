@@ -21,6 +21,9 @@ def display_dataframe(df: pd.DataFrame, use_container_width: bool = True):
         st.warning("Aucune donnée disponible.")
         return
     
+    # Sort the DataFrame by 'nombre_rendez_vous' in descending order
+    df = df.sort_values(by='nombre_rendez_vous', ascending=False)
+    
     # Apply styling to the DataFrame
     styled_df = df.style.background_gradient(subset='nombre_rendez_vous', cmap='viridis')
     
@@ -32,6 +35,7 @@ def display_dataframe(df: pd.DataFrame, use_container_width: bool = True):
     # Set cell properties for better visualization
     styled_df = styled_df.set_properties(**{'text-align': 'center', 'border': '1px solid grey'})
     
+
     # Display the styled DataFrame
     st.dataframe(styled_df, use_container_width=use_container_width)
 
@@ -66,6 +70,15 @@ def display_pivot_table(pivot_df: pd.DataFrame, use_container_width: bool = True
     # Set cell properties for better visualization
     styled_pivot = styled_pivot.set_properties(**{'text-align': 'center', 'border': '1px solid grey'})
     
+    # Add download button
+    csv = pivot_df.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="Télécharger en CSV",
+        data=csv,
+        file_name='analyse_jours_par_region.csv',
+        mime='text/csv',
+    )
+
     # Display the styled pivot table
     st.dataframe(styled_pivot, use_container_width=use_container_width)
 
