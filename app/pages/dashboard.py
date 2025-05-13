@@ -70,7 +70,14 @@ def display_data_section(data: pd.DataFrame, filters: Dict[str, Any]):
         excel_buffer = io.BytesIO()
         # Sort data for Excel download to match display order
         sorted_data = data.sort_values(by='nombre_rendez_vous', ascending=False)
-        sorted_data.to_excel(excel_buffer, index=False)
+        
+        # Clean data before Excel export to avoid IllegalCharacterError
+        cleaned_data = sorted_data.copy()
+        for col in cleaned_data.columns:
+            if cleaned_data[col].dtype == object:
+                cleaned_data[col] = cleaned_data[col].astype(str)
+        
+        cleaned_data.to_excel(excel_buffer, index=False)
         st.download_button(
             label="Télécharger en Excel",
             data=excel_buffer.getvalue(),
