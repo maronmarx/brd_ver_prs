@@ -20,11 +20,11 @@ from app.pages.advanced_dashboard import render_advanced_dashboard
 warnings.filterwarnings('ignore')
 
 # Configuration de la connexion MySQL
-DB_HOST = "localhost"
-DB_USER = "root"
-DB_PASSWORD = "123"
-DB_NAME = "ghandi"
-TABLE_NAME = "vicidial_rdv"
+DB_HOST = "188.165.37.12"
+DB_USER = "dev_234"
+DB_PASSWORD = "1234"
+DB_NAME = "web"
+TABLE_NAME = "rdv_fiche"
 
 # Style CSS pour un dashboard professionnel
 dashboard_style = """
