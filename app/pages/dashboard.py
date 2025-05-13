@@ -67,22 +67,15 @@ def display_data_section(data: pd.DataFrame, filters: Dict[str, Any]):
         display_dataframe(data)
 
         # Add download button for the main data table when day filter is not active
-        excel_buffer = io.BytesIO()
-        # Sort data for Excel download to match display order
+        csv_buffer = io.StringIO()
+        # Sort data for download to match display order
         sorted_data = data.sort_values(by='nombre_rendez_vous', ascending=False)
-        
-        # Clean data before Excel export to avoid IllegalCharacterError
-        cleaned_data = sorted_data.copy()
-        for col in cleaned_data.columns:
-            if cleaned_data[col].dtype == object:
-                cleaned_data[col] = cleaned_data[col].astype(str)
-        
-        cleaned_data.to_excel(excel_buffer, index=False)
+        sorted_data.to_csv(csv_buffer, index=False)
         st.download_button(
-            label="Télécharger en Excel",
-            data=excel_buffer.getvalue(),
-            file_name='donnees_rendez_vous.xlsx',
-            mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            label="Télécharger en CSV",
+            data=csv_buffer.getvalue(),
+            file_name='donnees_rendez_vous.csv',
+            mime='text/csv',
             key='download_main_data'
         )
 
@@ -94,26 +87,25 @@ def display_data_section(data: pd.DataFrame, filters: Dict[str, Any]):
 
             # Add download button for the pivot table
             if not pivot_data.empty:
-                excel_buffer = io.BytesIO()
-
-                # Format percentage columns for Excel export
-                jour_cols = [j for j in JOURS_ORDRE if j in pivot_data.columns] # Need to redefine jour_cols here
+                csv_buffer = io.StringIO()
+                
+                # Create a copy for CSV export
+                csv_pivot_data = pivot_data.copy()
+                
+                # Format percentage columns for CSV
+                jour_cols = [j for j in JOURS_ORDRE if j in pivot_data.columns]
                 percentage_cols = [f'{jour} (%)' for jour in jour_cols] + ['Total (%)']
-
-                # Create a copy to avoid modifying the dataframe used for display
-                excel_pivot_data = pivot_data.copy()
-
+                
                 for col in percentage_cols:
-                    if col in excel_pivot_data.columns:
-                        # Apply formatting, handle potential NaN values
-                        excel_pivot_data[col] = excel_pivot_data[col].apply(lambda x: f'{x:.2f}%' if pd.notna(x) else '')
-
-                excel_pivot_data.to_excel(excel_buffer, index=False)
+                    if col in csv_pivot_data.columns:
+                        csv_pivot_data[col] = csv_pivot_data[col].apply(lambda x: f'{x:.2f}%' if pd.notna(x) else '')
+                
+                csv_pivot_data.to_csv(csv_buffer, index=False)
                 st.download_button(
-                    label="Télécharger l'analyse par jour en Excel",
-                    data=excel_buffer.getvalue(),
-                    file_name='analyse_jours_par_region.xlsx',
-                    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    label="Télécharger l'analyse par jour en CSV", 
+                    data=csv_buffer.getvalue(),
+                    file_name='analyse_jours_par_region.csv',
+                    mime='text/csv',
                     key='download_day_analysis'
                 )
 
